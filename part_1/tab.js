@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './assets/css/maizuo.css'
-import File from './maizuoComponent/File';
-import Cinema from './maizuoComponent/Cinema';
-import Center from './maizuoComponent/Center';
+import File from '../part2_advanced/maizuoComponent/File';
+import Cinema from '../part2_advanced/maizuoComponent/Cinema';
+import Center from '../part2_advanced/maizuoComponent/Center';
 
 export default class tab extends Component {
     constructor(){
