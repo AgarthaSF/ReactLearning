@@ -10,13 +10,12 @@ Swiper.use([Navigation, Pagination])
 export default class ASwiper extends Component {
 
     componentDidMount() {
-        
+        console.log(this.props.loop)
         new Swiper('.swiper', {
-            modules: [Navigation, Pagination],
-            // loop: true,  //开启循环
             pagination: {
                 el: '.swiper-pagination',
               },
+            loop: this.props.loop,  //开启循环
           });
     }
 
@@ -25,14 +24,13 @@ export default class ASwiper extends Component {
     }
 
     render() {
+        console.log(this.props.loop)
         return (
             <div>
-                <div className="swiper" style={{height: "200px", background: "gray"}}>
+                <div className="swiper">
                     
                     <div className="swiper-wrapper">
-                        <div className="swiper-slide" >111</div>
-                        <div className="swiper-slide" >222</div>
-                        <div className="swiper-slide" >333</div>
+                        {this.props.children}
                     </div>
 
                     <div className="swiper-pagination"></div>
