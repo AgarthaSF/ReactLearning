@@ -13,8 +13,6 @@ export default class App extends Component {
             <div>
                 <IndexRouter>
                     <Tabbar></Tabbar>
-
-
                 </IndexRouter>
 
             </div>

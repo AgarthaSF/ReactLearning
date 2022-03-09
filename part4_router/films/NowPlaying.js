@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 // import { NavLink } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
+import { useHistory, withRouter } from 'react-router-dom'
+
+
+
+
 
 // 如果该组件是Route的component，实际上他是Route的子组件
 export default function NowPlaying(props) {
@@ -54,22 +58,24 @@ export default function NowPlaying(props) {
     return (
 
         <div>
-            <ul>
-                {
-                    //也可以使用NavLink，将to跳转到的网页转换为变量即可
-                    list.map((item)=>
-                        
-                         <li key={item.filmId} onClick={()=>handleChangePage(item.filmId)}>
-                            {/* <NavLink to={'detail/'+item.filmId}>{item.name}</NavLink> */}
-                            {item.name}
-                            
-                        </li>
-                    )
-                }
-
-            </ul>
-
-
+            {
+                list.map(item=>
+                    <WithFilmItem key={item.filmId} {...item}/>)
+            }
         </div>
     )
+}
+
+// withRouter包裹组件，成为该组件的父组件，此时就可以拿到props属性了
+// 在使用时写成WithFilmItem
+const WithFilmItem = withRouter(FilmItem)
+
+function FilmItem(props){
+    //console.log(props)
+    let {name, filmId} = props
+    return <li key={filmId} onClick={()=>{
+        props.history.push(`/detail/${filmId}`)
+    }}>
+    {name}
+        </li>
 }

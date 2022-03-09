@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import './Tabbar.css'
+import style from './Tabbar.module.css'
 
 export default class Tabbar extends Component {
     render() {
         return (
-            <div>
+            <div className = {style.film}>
                 <ul>
                     <li>
                         {/* 注意要加#号 */}
@@ -13,15 +13,15 @@ export default class Tabbar extends Component {
 
                         {/* NavLink只能用在HashRouter中，所以要使用插槽插入 */}
                         {/* 可以使用activeClassName改变active状态名 */}
-                        <NavLink to = "/films" >电影</NavLink>
+                        <NavLink to = "/films" activeClassName={style.active}>电影</NavLink>
                     </li>
 
                     <li>
-                        <NavLink to = "/cinemas">影院</NavLink>
+                        <NavLink to = "/cinemas" activeClassName={style.active}>影院</NavLink>
                     </li>
 
                     <li>
-                        <NavLink to = "/center">我的</NavLink>
+                        <NavLink to = "/center" activeClassName={style.active}>我的</NavLink>
                     </li>
                 </ul>
             </div>

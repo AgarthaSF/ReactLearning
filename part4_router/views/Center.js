@@ -1,9 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default class Center extends Component {
-  render() {
+function Center(props) {
+    console.log(props)
     return (
-      <div>Center</div>
+          <div>
+            Center
+
+            <div onClick={()=>{
+              props.history.push('filmsorder')
+            }}>电影订单</div>
+      </div>
     )
-  }
 }
+
+
+export default withRouter(Center)
